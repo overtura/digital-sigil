@@ -1,6 +1,6 @@
 import type { FormEvent } from "react";
 
-const EXAMPLES = ["고요한 용기", "새로운 길", "별빛의 기억", "create freely", "protect home", "release fear"];
+const EXAMPLES = ["고요한 용기", "새로운 길", "별빛의 기억", "자유롭게 창조하기", "집을 지키기", "두려움 놓아주기"];
 
 type Props = {
   value: string;
@@ -19,8 +19,8 @@ export function GeneratorForm({ value, busy, statusText, progress, onChange, onG
 
   return (
     <section className="intro" aria-labelledby="page-title">
-      <p className="eyebrow">LOCAL SEMANTIC INSTRUMENT · 01</p>
-      <h1 id="page-title">Digital Sigil</h1>
+      <p className="eyebrow">브라우저 로컬 의미 도구 · 01</p>
+      <h1 id="page-title"><span lang="en">Digital Sigil</span><small>디지털 시길</small></h1>
       <p className="lede">
         한 단어의 방향과 온도를 읽어, 오직 당신의 브라우저 안에서 움직이는 추상 기하 문양으로 바꿉니다.
       </p>
@@ -34,6 +34,7 @@ export function GeneratorForm({ value, busy, statusText, progress, onChange, onG
             onChange={(event) => onChange(event.target.value)}
             placeholder="예: 고요한 용기"
             autoComplete="off"
+            enterKeyHint="go"
             disabled={busy}
           />
           <button className="primary-button" type="submit" disabled={busy || !value.trim()}>

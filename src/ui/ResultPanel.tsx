@@ -35,7 +35,7 @@ export function ResultPanel({ result, paused, onPause, onVary, onReset }: Props)
       <section className="result-shell result-shell--empty" aria-label="문양 결과 영역">
         <div className="empty-orbit" aria-hidden="true"><span /></div>
         <p>문구의 의미 좌표가 이곳에서 형태를 얻습니다.</p>
-        <small>DETERMINISTIC · ABSTRACT · PRIVATE</small>
+        <small>결정적 · 추상 · 비공개</small>
       </section>
     );
   }
@@ -55,11 +55,11 @@ export function ResultPanel({ result, paused, onPause, onVary, onReset }: Props)
 
   return (
     <section className="result-shell" aria-labelledby="result-title">
-      <div className="plate-index" aria-hidden="true">PLATE {String(plan.variation + 1).padStart(2, "0")}</div>
+      <div className="plate-index" aria-hidden="true">도판 {String(plan.variation + 1).padStart(2, "0")}</div>
       <div className="sigil-stage"><SigilSvg geometry={geometry} plan={plan} paused={paused} /></div>
       <div className="result-copy">
         <div>
-          <p className="eyebrow">GENERATED FORM</p>
+          <p className="eyebrow">생성된 문양</p>
           <h2 id="result-title">{title}</h2>
         </div>
         <dl>
@@ -78,7 +78,7 @@ export function ResultPanel({ result, paused, onPause, onVary, onReset }: Props)
         <button type="button" onClick={onReset}>입력 초기화</button>
       </div>
       {exportState === "error" && <p className="export-error" role="alert">PNG 내보내기에 실패했습니다.</p>}
-      <details className="seed-details"><summary>생성 정보</summary><code>seed {plan.seed} · confidence {analysis.confidence.toFixed(2)}</code></details>
+      <details className="seed-details"><summary>생성 정보</summary><code>시드 {plan.seed} · 신뢰도 {analysis.confidence.toFixed(2)}</code></details>
     </section>
   );
 }

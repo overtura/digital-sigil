@@ -52,7 +52,7 @@ export function SigilSvg({ geometry, plan, paused }: Props) {
       aria-label="입력 의미를 바탕으로 생성한 추상 기하 문양"
       data-testid="sigil-svg"
     >
-      <title>Digital Sigil abstract geometry</title>
+      <title>디지털 시길 추상 기하 문양</title>
       <g className="sigil__orbit">{layer("orbit")}</g>
       <g className="sigil__marks">{layer("marks")}</g>
       <g className="sigil__core">{layer("core")}</g>
