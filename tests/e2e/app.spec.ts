@@ -60,6 +60,24 @@ test("exposes Korean metadata and an accessible skip link", async ({ page }) => 
   await expect(page.locator('link[rel="manifest"]')).toHaveAttribute("href", "/site.webmanifest");
   await page.keyboard.press("Tab");
   await expect(page.getByRole("link", { name: "본문으로 바로가기" })).toBeFocused();
+
+  await page.getByRole("link", { name: "디지털 시길 처음으로" }).click();
+  await expect(page).toHaveURL(/#main-content$/);
+  await expect(page.locator("#main-content")).toBeVisible();
+
+  const assetPaths = [
+    "/digital-sigil-social.jpg",
+    "/favicon-64.png",
+    "/apple-touch-icon.png",
+    "/site.webmanifest",
+    "/icon-192.png",
+    "/icon-512.png",
+    "/robots.txt",
+  ];
+  for (const path of assetPaths) {
+    const response = await page.request.get(new URL(path, page.url()).toString());
+    expect(response.ok(), `${path} should be served`).toBe(true);
+  }
 });
 
 test("honors reduced motion", async ({ page }) => {

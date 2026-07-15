@@ -29,7 +29,7 @@ export function App() {
     <div className="app-shell">
       <a className="skip-link" href="#main-content">본문으로 바로가기</a>
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="디지털 시길 처음으로">DS<span>○</span></a>
+        <a className="wordmark" href="#main-content" aria-label="디지털 시길 처음으로">DS<span>○</span></a>
         <p>의미 기하 연구</p>
         <span className="local-badge">로컬 · 비공개</span>
       </header>
