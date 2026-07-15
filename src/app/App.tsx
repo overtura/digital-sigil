@@ -27,12 +27,13 @@ export function App() {
 
   return (
     <div className="app-shell">
+      <a className="skip-link" href="#main-content">본문으로 바로가기</a>
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Digital Sigil 처음으로">DS<span>○</span></a>
-        <p>SEMANTIC GEOMETRY STUDY</p>
-        <span className="local-badge">LOCAL / PRIVATE</span>
+        <a className="wordmark" href="#top" aria-label="디지털 시길 처음으로">DS<span>○</span></a>
+        <p>의미 기하 연구</p>
+        <span className="local-badge">로컬 · 비공개</span>
       </header>
-      <main id="top" className="workspace">
+      <main id="main-content" className="workspace" aria-busy={busy}>
         <GeneratorForm
           value={input}
           busy={busy}
@@ -52,7 +53,7 @@ export function App() {
       {machine.error && <p className="global-error" role="alert">{machine.error}</p>}
       <footer>
         <p>추상 디지털 아트 도구이며 종교·주술·예언·진단을 제공하지 않습니다.</p>
-        <p>SVG SOURCE OF TRUTH · NO SERVER · NO ACCOUNT</p>
+        <p>SVG 원본 · 서버 없음 · 계정 없음</p>
       </footer>
     </div>
   );
