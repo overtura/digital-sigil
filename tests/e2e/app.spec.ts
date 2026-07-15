@@ -57,6 +57,18 @@ test("exposes Korean metadata and an accessible skip link", async ({ page }) => 
   await expect(page).toHaveTitle("디지털 시길 | 브라우저 로컬 추상 문양 생성기");
   await expect(page.locator('html')).toHaveAttribute("lang", "ko");
   await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute("content", "ko_KR");
+  await expect(page.locator('meta[property="og:url"]')).toHaveAttribute(
+    "content",
+    "https://digital-sigil-okorions-projects.vercel.app/",
+  );
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+    "content",
+    "https://digital-sigil-okorions-projects.vercel.app/digital-sigil-social.jpg",
+  );
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    "https://digital-sigil-okorions-projects.vercel.app/",
+  );
   await expect(page.locator('link[rel="manifest"]')).toHaveAttribute("href", "/site.webmanifest");
   await page.keyboard.press("Tab");
   const skipLink = page.getByRole("link", { name: "본문으로 바로가기" });
