@@ -16,6 +16,7 @@ let backend: RuntimeBackend | undefined;
 env.allowLocalModels = false;
 env.allowRemoteModels = true;
 env.useBrowserCache = true;
+env.backends.onnx.logLevel = "error";
 
 function post(message: WorkerResponse): void {
   context.postMessage(message);
@@ -31,6 +32,7 @@ async function createExtractor(id: number, device: RuntimeBackend): Promise<Extr
   const result = await pipeline("feature-extraction", MODEL_ID, {
     device,
     dtype: "q8",
+    session_options: { logSeverityLevel: 3 },
     progress_callback: (information) => reportProgress(id, information),
   });
   return result as unknown as Extractor;

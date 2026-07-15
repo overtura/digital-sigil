@@ -24,10 +24,8 @@ function id(seed: number, index: number): string {
 function addCore(primitives: SigilPrimitive[], plan: SigilPlan, stroke: number): void {
   const nextId = () => id(plan.seed, primitives.length);
   if (plan.core === "void") {
-    primitives.push(
-      { kind: "circle", id: nextId(), layer: "core", stroke, cx: CENTER, cy: CENTER, radius: 38 },
-      { kind: "circle", id: nextId(), layer: "core", stroke, cx: CENTER, cy: CENTER, radius: 15 },
-    );
+    primitives.push({ kind: "circle", id: nextId(), layer: "core", stroke, cx: CENTER, cy: CENTER, radius: 38 });
+    primitives.push({ kind: "circle", id: nextId(), layer: "core", stroke, cx: CENTER, cy: CENTER, radius: 15 });
     return;
   }
   if (plan.core === "eye") {

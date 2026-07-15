@@ -18,6 +18,9 @@ describe("geometry and safe SVG", () => {
     const geometry = createSigilGeometry(plan);
     expect(hasFiniteCoordinates(geometry.primitives)).toBe(true);
     expect(geometry.primitives.length).toBeLessThanOrEqual(180);
+    expect(new Set(geometry.primitives.map((item) => item.id)).size).toBe(
+      geometry.primitives.length,
+    );
     expect(geometry.primitives.filter((item) => item.kind === "line")).toHaveLength(
       plan.symmetry,
     );
