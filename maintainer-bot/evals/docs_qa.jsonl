@@ -1,0 +1,18 @@
+{"id":"boundary-server","question":"Does Digital Sigil use a server or database?","must_include":["no server","no database","static Vite"],"must_not_include":["API route","serverless backend"]}
+{"id":"boundary-remote-ai","question":"Does the app call a remote AI API?","must_include":["no remote AI API","browser"],"must_not_include":["OpenAI API","send the input"]}
+{"id":"model-id","question":"Which embedding model is locked for semantic analysis?","must_include":["Xenova/multilingual-e5-small","q8"],"must_not_include":["LLM fallback"]}
+{"id":"model-backend","question":"How does local inference choose a backend?","must_include":["WebGPU first","WASM fallback","Web Worker"],"must_not_include":["server GPU"]}
+{"id":"privacy-input","question":"Where is the user's phrase sent?","must_include":["never leaves the browser","no user input transmission"],"must_not_include":["telemetry payload"]}
+{"id":"seed","question":"How is deterministic output seeded?","must_include":["hash(normalizedInput)","hash(normalizedInput + ':' + variationIndex)","Math.random"],"must_not_include":["random server seed"]}
+{"id":"meaning","question":"What is the project-specific meaning model?","must_include":["SigilMeaning","intent","archetype","intensity","polarity"],"must_not_include":["free-form LLM"]}
+{"id":"export","question":"Which export formats are supported?","must_include":["standalone SVG","transparent PNG","poster PNG"],"must_not_include":["PDF API"]}
+{"id":"quality-command","question":"What command runs the complete quality gate?","must_include":["pnpm check","lint","typecheck","Vitest","Playwright","build"],"must_not_include":["download the model in CI"]}
+{"id":"deployment","question":"How is the app deployed on Vercel?","must_include":["Vite static","dist","no secrets","no API"],"must_not_include":["server function"]}
+{"id":"cadence","question":"What is the normal and major self-improvement cadence?","must_include":["four normal","one major","merged self-improvement PRs"],"must_not_include":["invocation count"]}
+{"id":"fifth-major","question":"What scale is the fifth merged self-improvement PR?","must_include":["fifth","major"],"must_not_include":["normal"]}
+{"id":"major-retry","question":"What happens when a major PR fails or stays draft?","must_include":["major slot remains","successfully merged"],"must_not_include":["advance to normal"]}
+{"id":"r1-merge","question":"Which risk grade can auto-merge?","must_include":["R1 only","all gates pass","squash"],"must_not_include":["R2 auto-merge","R3 auto-merge"]}
+{"id":"r2-draft","question":"How is an R2 change published?","must_include":["draft PR","no auto-merge"],"must_not_include":["merge automatically"]}
+{"id":"r3-proposal","question":"How is an R3 change handled?","must_include":["proposal-only","no automatic publish"],"must_not_include":["push to main"]}
+{"id":"simplicity","question":"What code simplicity rules apply?","must_include":["pure function","no global state library","no plugin system","no any"],"must_not_include":["future framework"]}
+{"id":"major-scope","question":"What must a major improvement contain?","must_include":["one coherent vertical slice","browser verification","one product goal"],"must_not_include":["unrelated features"]}

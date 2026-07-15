@@ -1,0 +1,46 @@
+{
+  "name": "digital-sigil",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint src tests vite.config.ts vitest.config.ts playwright.config.ts",
+    "typecheck": "tsc -b --pretty false",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm test:e2e",
+    "centroids": "node scripts/generate-centroids.mjs",
+    "improve": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/run-self-improvement.ps1 -AutoMerge -AllowLocalPublisherAuth",
+    "improve:normal": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/run-self-improvement.ps1 -Scale normal -AutoMerge -AllowLocalPublisherAuth",
+    "improve:major": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/run-self-improvement.ps1 -Scale major -AutoMerge -AllowLocalPublisherAuth",
+    "improve:dry": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/run-self-improvement.ps1 -DryRun"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "3.8.1",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.61.1",
+    "@types/node": "24.10.4",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.3",
+    "eslint": "10.7.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.3",
+    "globals": "17.7.0",
+    "prettier": "3.9.5",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.64.0",
+    "vite": "8.1.4",
+    "vitest": "4.1.10"
+  }
+}

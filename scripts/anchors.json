@@ -1,0 +1,18 @@
+{
+  "intent": {
+    "protect": ["안전하게 지키는 경계", "소중한 것을 보호하다", "a calm protective boundary", "keep what matters safe"],
+    "seek": ["새로운 길을 찾다", "멀리 있는 답을 탐색하다", "search for a distant answer", "follow a clear direction"],
+    "create": ["새로운 것을 만들다", "아이디어를 형태로 빚다", "create something original", "shape an idea into form"],
+    "transform": ["변화를 받아들이다", "다른 모습으로 전환하다", "move through transformation", "become a different form"],
+    "bind": ["여러 조각을 하나로 잇다", "관계를 단단히 연결하다", "bind separate parts together", "hold a connection in place"],
+    "release": ["붙잡은 것을 놓아주다", "밖으로 자유롭게 펼치다", "release what is held", "open outward and let go"]
+  },
+  "archetype": {
+    "solar": ["따뜻한 햇빛과 활력", "밝게 타오르는 중심", "warm sunlight and vitality", "a radiant golden center"],
+    "lunar": ["고요한 달빛과 반사", "밤의 느린 주기", "quiet moonlight and reflection", "a slow nocturnal cycle"],
+    "celestial": ["별자리와 넓은 하늘", "궤도를 도는 천체", "constellations across open sky", "celestial bodies in orbit"],
+    "organic": ["씨앗과 가지의 성장", "물과 잎의 유기적 흐름", "a seed growing into branches", "organic currents of leaf and water"],
+    "mechanical": ["정밀한 기어와 구조", "반복되는 기계적 질서", "precise gears and structure", "a measured mechanical rhythm"],
+    "void": ["비어 있는 깊은 공간", "침묵과 어두운 여백", "a deep and open void", "silence inside dark negative space"]
+  }
+}

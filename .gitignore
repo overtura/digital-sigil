@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+.vite/
+.DS_Store
+*.local
+maintainer-bot/local-state.json
+maintainer-bot/runs/
+work/
+outputs/
