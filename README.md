@@ -49,7 +49,7 @@ pnpm check
 
 ## 정적 배포
 
-[디지털 시길 웹 앱 열기](https://digital-sigil-okorions-projects.vercel.app/)
+[디지털 시길 웹 앱 열기](https://digital-sigil.vercel.app/)
 
 Vercel 설정은 `vercel.json`에 고정되어 있습니다.
 
