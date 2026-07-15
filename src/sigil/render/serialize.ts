@@ -57,5 +57,5 @@ function primitiveMarkup(primitive: SigilPrimitive, colors: PaletteColors): stri
 export function serializeSvg(geometry: SigilGeometry, palette: Palette): string {
   const colors = PALETTE_COLORS[palette];
   const body = geometry.primitives.map((primitive) => primitiveMarkup(primitive, colors)).join("");
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${geometry.viewBox}" role="img" aria-label="Abstract geometric sigil"><g fill="none">${body}</g></svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${geometry.viewBox}" role="img" aria-labelledby="sigil-title"><title id="sigil-title">디지털 시길 추상 기하 문양</title><g fill="none">${body}</g></svg>`;
 }

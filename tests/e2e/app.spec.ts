@@ -59,8 +59,13 @@ test("exposes Korean metadata and an accessible skip link", async ({ page }) => 
   await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute("content", "ko_KR");
   await expect(page.locator('link[rel="manifest"]')).toHaveAttribute("href", "/site.webmanifest");
   await page.keyboard.press("Tab");
-  await expect(page.getByRole("link", { name: "본문으로 바로가기" })).toBeFocused();
+  const skipLink = page.getByRole("link", { name: "본문으로 바로가기" });
+  await expect(skipLink).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/#main-content$/);
+  await expect(page.locator("#main-content")).toBeFocused();
 
+  await page.goto("/");
   await page.getByRole("link", { name: "디지털 시길 처음으로" }).click();
   await expect(page).toHaveURL(/#main-content$/);
   await expect(page.locator("#main-content")).toBeVisible();
@@ -78,6 +83,31 @@ test("exposes Korean metadata and an accessible skip link", async ({ page }) => 
     const response = await page.request.get(new URL(path, page.url()).toString());
     expect(response.ok(), `${path} should be served`).toBe(true);
   }
+
+  const manifestResponse = await page.request.get(new URL("/site.webmanifest", page.url()).toString());
+  const manifest = (await manifestResponse.json()) as {
+    name: string;
+    short_name: string;
+    lang: string;
+    icons: Array<{ src: string; sizes: string; type: string }>;
+  };
+  expect(manifest.name).toContain("디지털 시길");
+  expect(manifest.short_name).toBe("디지털 시길");
+  expect(manifest.lang).toBe("ko-KR");
+  expect(manifest.icons).toEqual(
+    expect.arrayContaining([
+      expect.objectContaining({ src: "/icon-192.png", sizes: "192x192", type: "image/png" }),
+      expect.objectContaining({ src: "/icon-512.png", sizes: "512x512", type: "image/png" }),
+    ]),
+  );
+
+  const socialImageSize = await page.evaluate(async () => {
+    const image = new Image();
+    image.src = "/digital-sigil-social.jpg";
+    await image.decode();
+    return { width: image.naturalWidth, height: image.naturalHeight };
+  });
+  expect(socialImageSize).toEqual({ width: 1200, height: 630 });
 });
 
 test("honors reduced motion", async ({ page }) => {

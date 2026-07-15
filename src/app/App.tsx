@@ -33,7 +33,7 @@ export function App() {
         <p>의미 기하 연구</p>
         <span className="local-badge">로컬 · 비공개</span>
       </header>
-      <main id="main-content" className="workspace" aria-busy={busy}>
+      <main id="main-content" className="workspace" aria-busy={busy} tabIndex={-1}>
         <GeneratorForm
           value={input}
           busy={busy}

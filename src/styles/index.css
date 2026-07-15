@@ -37,7 +37,7 @@
   }
   button { border: 0; background: none; cursor: pointer; }
   button:disabled { cursor: wait; opacity: 0.52; }
-  button:focus-visible, input:focus-visible, summary:focus-visible {
+  button:focus-visible, input:focus-visible, summary:focus-visible, #main-content:focus-visible {
     outline: 3px solid color-mix(in srgb, var(--focus) 65%, transparent);
     outline-offset: 3px;
   }

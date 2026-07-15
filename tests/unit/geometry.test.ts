@@ -29,12 +29,14 @@ describe("geometry and safe SVG", () => {
   it("serializes standalone SVG without executable markup", () => {
     const svg = serializeSvg(createSigilGeometry(plan), plan.palette);
     expect(svg.startsWith("<svg xmlns=")).toBe(true);
+    expect(svg).toContain('<title id="sigil-title">디지털 시길 추상 기하 문양</title>');
+    expect(svg).toContain('aria-labelledby="sigil-title"');
     expect(svg).not.toMatch(/<script|foreignObject|onload=/i);
     expect(svg).not.toContain("고요한 용기");
   });
 
   it("matches the deterministic SVG snapshot hash", () => {
     const svg = serializeSvg(createSigilGeometry(plan), plan.palette);
-    expect(hashString(svg)).toBe(3_712_210_423);
+    expect(hashString(svg)).toBe(1_002_421_261);
   });
 });
